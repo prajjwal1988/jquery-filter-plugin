@@ -22,7 +22,8 @@ Add the following data attributes to the search box
 
 ** NOTE ** : Make sure that you do not miss the # symbol  for id of wrapper and the dot(.) before the class names.
 
-
+## Live Demo 
+[civilscloud.com/institutes/](http://civilscloud.com/institutes/)
 ## Walkthrough of the Demo
 
 In my example demo, there is a list of institutes which is wrapped inside a div with id="institutes_list"

@@ -22,8 +22,9 @@ Add the following data attributes to the search box
 
 ** NOTE ** : Make sure that you do not miss the # symbol  for id of wrapper and the dot(.) before the class names.
 
-## Live Demo 
-[civilscloud.com/institutes/](http://civilscloud.com/institutes/)
+Please go through the code of the demo file I have included in this repository, There are comments to help you understand the code.
+
+
 ## Walkthrough of the Demo
 
 In my example demo, there is a list of institutes which is wrapped inside a div with id="institutes_list"
@@ -67,5 +68,3 @@ Here is the HTML Code:
 	</div>
 </div>
 ```
-
-Please go through the code of the demo, I have provided a lot of comments to help you understand the code.

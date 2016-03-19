@@ -10,6 +10,8 @@ The items should be present inside a wrapper, and each of the items must have a 
 The contents like title or fields that should be taken into consideration need to be wrapped inside an html element like 'span' with a class.
 
 ## How to use ?
+Add the script jquery_filter_plugin.js right after importing jquery library.
+
 Add the class **jquery_filter**  to the search box.
 
 Add the following data attributes to the search box

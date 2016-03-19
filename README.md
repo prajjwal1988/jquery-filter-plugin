@@ -44,4 +44,27 @@ Let us look at the attributes required here:
 2.  **data-search-item-class** : The class of each item. In this case it is : **.list-card**
 3.  **data-search-classes** : Comma separated classes that needs to be searched. In this case it is : **.title** , **.address** and **.subject_badge**
 
+Here is the HTML Code:
+```
+<div id="institutes_list">		
+	<div class="list-card clearfix">
+		<div class="list-card-data">
+			<h3 class="card-title"><a target="_blank" href="/maindemoinstitute-academy/"> MainDemoInstitute Academy, Rajeev Nagar, New Delhi</a></h3>
+			<p>
+				<strong>Phn:</strong> 1234567890
+			</p>
+			<p> 
+				<strong>Address:</strong>
+				<span class="address">#35, 10th Main, Safdarjung Enclave, New Delhi</span> 
+			</p>
+			<p>
+				<strong>Subjects : </strong> 
+				<span class="badge subject_badge"> History, </span> 
+				<span class="badge subject_badge"> Public Administration </span> 
+			</p>
+		</div>
+	</div>
+</div>
+```
+
 Please go through the code of the demo, I have provided a lot of comments to help you understand the code.

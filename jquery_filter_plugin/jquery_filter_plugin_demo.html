@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<h3>INPUT TEXTBOX:</h3>
-		<input type="text" class=" jquery_search " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge" />
+		<input type="text" class=" jquery_filter " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge" />
 
 		<h3>ITEM LIST :</h3>
 		<div id="institutes_list">
@@ -79,13 +79,13 @@
 
 		<script   src="https://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
 		<script>
-			$(document).on('keyup','.jquery_search',function(){
+			$(document).on('keyup','.jquery_filter',function(){
 				// data attrubutes:
 				// 1. data-search-item-div 
 				// 2. data-search-classes : Comma separated classes 
 				// 			in the search item div class1,class2 
 				// Example : 
-				// <input type="text" class="jquery_search" 
+				// <input type="text" class="jquery_filter" 
 				// placeholder="Enter Search Text " 
 				// data-search-items-wrapper-id="#institutes_list"
 				// data-search-item-class=".list-card"

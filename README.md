@@ -22,6 +22,9 @@ Add the following data attributes to the search box
 
 ** NOTE ** : Make sure that you do not miss the # symbol  for id of wrapper and the dot(.) before the class names.
 
+## Demo of the plugin
+<a href="http://prajjwal1988.github.io/jquery_filter_demo/" target="_blank">http://prajjwal1988.github.io/jquery_filter_demo/</a>
+
 Please go through the code of the demo file I have included in this repository, There are comments to help you understand the code.
 
 

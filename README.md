@@ -33,8 +33,10 @@ Each institute inside the wrapper has a class "list-card". It has important fiel
 2.  Address of the Institute : With the class "address".
 3.  Subjects that are taught in the Institute : With the class "subject_badge".
 
-Now, We need to search based on all the above 3 fields in the items. To do this, we will create the search box in the folowing way : `<input type="text" class=" jquery_filter " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge">` 
-
+Now, We need to search based on all the above 3 fields in the items. To do this, we will create the search box in the folowing way : 
+```
+<input type="text" class=" jquery_filter " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge">
+``` 
 The search box has the class **jquery_filter**  
 Let us look at the attributes required here:  
 

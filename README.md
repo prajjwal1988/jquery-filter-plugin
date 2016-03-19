@@ -27,3 +27,5 @@ Let us look at the attributes required here:
 1.  **data-search-items-wrapper-id** : This is the id of the wrapper of the items. In this case it is : **#institutes_list**
 2.  **data-search-item-class** : The class of each item. In this case it is : **.list-card**
 3.  **data-search-classes** : Comma separated classes that needs to be searched. In this case it is : **.title** , **.address** and **.subject_badge**
+
+Please go through the code of the demo, I have provided a lot of comments to help you understand the code.

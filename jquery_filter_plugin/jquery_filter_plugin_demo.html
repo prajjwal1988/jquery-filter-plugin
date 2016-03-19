@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+	<head>
+		<style type="text/css">
+			.clearfix:before, .clearfix:after{
+				display: table;
+    		content: " ";
+			}
+			.clearfix:after{
+		    clear: both;
+			}
+			.list-card{
+				border:1px solid #ddd;
+				padding:10px;
+				margin-bottom: 10px;
+			}
+			.hidden{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>INPUT TEXTBOX:</h3>
+		<input type="text" class=" jquery_search " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge" />
+
+		<h3>ITEM LIST :</h3>
+		<div id="institutes_list">
+			
+			<div class="list-card clearfix">
+				<div class="list-card-data">
+					<h3 class="card-title"><a target="_blank" href="/maindemoinstitute-academy/"> MainDemoInstitute Academy, Rajeev Nagar, New Delhi</a></h3>
+					<p>
+						<strong>Phn:</strong> 1234567890
+					</p>
+
+					<p> 
+						<strong>Address:</strong>
+						<span class="address">#35, 10th Main, Safdarjung Enclave, New Delhi</span> 
+					</p>
+
+					<p>
+						<strong>Subjects : </strong> 
+						<span class="badge subject_badge"> History, </span> 
+						<span class="badge subject_badge"> Public Administration </span> 
+					</p>
+
+					
+
+				</div>
+			</div>
+			
+			<div class="list-card clearfix ">
+				<div class="list-card-data">
+
+					<h3 class="card-title"><a target="_blank" href="/demo2institute-2/"> Demo2Institute 2, Street Name, Bangalore</a></h3>
+
+					<p>
+						<strong>Phn :</strong> 123457900
+					</p>
+
+					<p> 
+						<strong>Address: </strong> 
+						<span class="address"> Sample address </span> 
+					</p>
+
+					<p>
+						<strong>Subjects : </strong> 
+						<span class="badge subject_badge"> Geography ,</span>
+						<span class="badge subject_badge"> Ecology </span> 
+					</p>
+
+					
+
+				</div>
+
+			</div>
+			
+		</div>
+
+		<script   src="https://code.jquery.com/jquery-1.12.2.min.js"   integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk="   crossorigin="anonymous"></script>
+		<script>
+			$(document).on('keyup','.jquery_search',function(){
+				// data attrubutes:
+				// 1. data-search-item-div 
+				// 2. data-search-classes : Comma separated classes 
+				// 			in the search item div class1,class2 
+				// Example : 
+				// <input type="text" class="jquery_search" 
+				// placeholder="Enter Search Text " 
+				// data-search-items-wrapper-id="#institutes_list"
+				// data-search-item-class=".list-card"
+				// data-search-classes=".card-title,.address,.subject_badge" >
+				var debug = false;
+				if (debug){
+					console.log(" **** NEW SEARCH BEGINS **** ")
+				}
+				var $wrapper = $($(this).attr('data-search-items-wrapper-id'));
+				var $search_item_div = $wrapper.find($(this).attr('data-search-item-class'));
+				if ($.trim($(this).val()) == ""){
+					// If the current search text is empty, show all the elements
+					// This will cover the scenario when the user
+					// writes something and then deletes.
+					$search_item_div.removeClass('hidden');
+					$wrapper.find('.not_found_div').remove();
+				}
+				else{
+					// split the search text in to tokens 
+					var search_tokens = $.trim($(this).val()).split(' ');
+					if (debug){
+						console.log("Search Tokens : " + search_tokens);
+					}
+					// Find all the classes inside the item box which 
+					// contains the data that we have to index.
+					var search_classes = $(this).attr('data-search-classes').split(',');
+
+					// Maintain the number of matches in matching_count variable.
+					var matching_count = 0;
+					
+					// Loop over all the search item elements
+					$search_item_div.each(function(){
+						var cur_div = $(this);
+						var div_str = "";
+						// loop over all the search classes
+						// and construct a long string with all the strings to search
+						$.each(search_classes,function(index,value){
+							if (debug){
+								console.log("Search Class = " + value);
+								console.log("Search Class Value = " + cur_div.find(value).text());
+							}
+							div_str += " " + cur_div.find(value).text();
+						});
+						if (debug){
+							console.log("Div Str : "+ div_str);
+						}
+						
+						// Now loop through the tokens to test for match
+						$.each(search_tokens,function(index,value){
+							if (value){
+								var re = new RegExp(value, "i");
+								if (re.test(div_str)){
+									// Token matches ? unhide the search item element
+									cur_div.removeClass('hidden');	
+									matching_count += 1;
+								}
+								else{
+									// No match ?  hide the current search item element
+									cur_div.addClass('hidden');
+								}
+							}
+						});
+
+						// if (matching_count == 0 ){
+						// 	$wrapper.find('.not_found_div').remove();
+						// 	$wrapper.append("<div class='not_found_div' style='color:#888; text-align:center; font-size:18px; margin-top:40px;'> Not Found ! </div>");
+						// }
+						// else{
+						// 	$wrapper.find('.not_found_div').remove();
+						// }
+						if (debug){
+							console.log("Matching Count : " + matching_count);
+						}
+						if (matching_count == 0 ){
+
+							// If no match is found, display the "Not Found" message.
+							if ($wrapper.find('.not_found_div').length > 0){
+								$wrapper.find('.not_found_div').removeClass("hidden");
+							}else{
+								$wrapper.append("<div class='not_found_div' style='color:#888; text-align:center; font-size:18px; margin-top:40px;'> Not Found ! </div>");	
+							}
+						}
+						else{
+							// if any of the element matches, hide the "Not Found" Message.
+							$wrapper.find('.not_found_div').addClass("hidden");
+						}
+						
+					});
+				}
+			});
+		</script>
+	</body>
+</html>

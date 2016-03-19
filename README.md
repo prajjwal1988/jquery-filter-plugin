@@ -9,6 +9,18 @@ The most common scenario when we require a filter plugin like this is when we ha
 The items should be present inside a wrapper, and each of the items must have a specific class.  
 The contents like title or fields that should be taken into consideration need to be wrapped inside an html element like 'span' with a class.
 
+## How to use ?
+Add the class **jquery_filter**  to the search box.
+
+Add the following data attributes to the search box
+
+1.  **data-search-items-wrapper-id** : This is the id of the wrapper of the items. In this case it is : **#institutes_list**
+2.  **data-search-item-class** : The class of each item in the list . In this case it is : **.list-card**
+3.  **data-search-classes** : Comma separated classes inside the item that needs to be searched. In this case it is : **.title** , **.address** and **.subject_badge**
+
+** NOTE ** : Make sure that you do not miss the # symbol  for id of wrapper and the dot(.) before the class names.
+
+
 ## Walkthrough of the Demo
 
 In my example demo, there is a list of institutes which is wrapped inside a div with id="institutes_list"

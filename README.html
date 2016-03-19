@@ -1,0 +1,49 @@
+<h1> Jquery Filter Plugin</h1>
+<p>
+	jQuery Filter plugin is my attempt at making a simple in-page filter plugin, it is very helpful where the user has an input textbox and a list of items.
+</p>
+<p> 
+	Here is a simple step by step tutorial to use this plugin.
+</p>
+<p> 
+	The most common scenario when we require a filter plugin like this is when we have a list of items on our page and we have a search box. A we type in the search box, the relevant matching items are displayed while the non-matching items disappear.
+</p>
+<p>
+    The items should be present inside a wrapper, and each of the items must have a specific class.
+    <br/> The contents like title or fields that should be taken into consideration need to be wrapped inside an html element like 'span' with a class.
+</p>
+<h2> Walkthrough of the Demo </h2>
+<p>
+  In my example demo, there is a list of institutes which is wrapped inside a div with id="institutes_list" 
+</p>
+<p> 
+	Each institute inside the wrapper has a class "list-card". It has important fields like:
+  <ol>
+      <li>Name of the Institute : With the class "card-title". </li>
+      <li>Address of the Institute : With the class "address". </li>
+      <li>Subjects that are taught in the Institute : With the class "subject_badge". </li>
+  </ol>
+</p>
+<p> Now, We need to search based on all the above 3 fields in the items. To do this, we will create the search box in the folowing way :
+  <code>
+		<input type="text" class=" jquery_filter " placeholder="Search for Institute" data-search-items-wrapper-id="#institutes_list" data-search-item-class=".list-card" data-search-classes=".card-title,.address,.subject_badge" />
+	</code>
+</p>
+<p> 
+	The search box has the class <strong>jquery_filter</strong> <br/>
+	Let us look at the attributes required here: <br/>
+	<ol>
+		
+		<li>
+			<strong>data-search-items-wrapper-id </strong> : This is the id of the wrapper of the items. In this case it is : <strong> #institutes_list </strong>
+		</li>
+		<li>
+			<strong>data-search-item-class </strong> : The class of each item. In this case it is : <strong>.list-card</strong>
+		</li>
+		<li>
+			<strong>data-search-classes </strong> : Comma separated classes that needs to be searched. In this case it is : <strong> .title </strong>, <strong>.address</strong> and <strong>.subject_badge</strong>
+		</li>
+	</ol>
+</p>
+
+
